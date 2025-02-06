@@ -1,0 +1,52 @@
+# Root-level .gitignore
+
+# Ignore build directories
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Ignore IntelliJ IDEA files
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Ignore STS files
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+
+# Ignore NetBeans files
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Ignore VS Code files
+.vscode/
+
+# Ignore log files
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore Java build files
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignore application properties
+#bank-account-api/src/main/resources/application.properties
+bank-account-api/src/test/resources/application.properties
+bank-account-ui/src/main/resources/application.properties
+bank-account-ui/src/test/resources/application.properties
