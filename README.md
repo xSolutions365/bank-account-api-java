@@ -1,6 +1,6 @@
 # Bank Account Solution
 
-This solution contains a simple Bank Account MVC project with a REST API and accompanying unit tests.
+This solution contains a simple Bank Account web application with a REST API, a front-end built with Thymeleaf, and accompanying tests.
 
 ## Project Overview
 
@@ -14,6 +14,14 @@ This solution contains a simple Bank Account MVC project with a REST API and acc
 - **Services**: Contains unit tests for the `BankAccountService` to verify business logic and data manipulation.
 - **End-to-End Tests**: Contains end-to-end tests to verify the complete workflow of the back-end application.
 
+### Bank Account UI (Front-End)
+- **Thymeleaf Templates**: Implements a simple front-end for viewing bank accounts.
+- **Integration**: Fetches data from the BankAccountAPI using REST calls.
+- **Routing**: Ensures /bankaccounts displays the list of bank accounts.
+
+### Bank Account UI Tests
+- **Selenium Tests**: Uses Selenium and ChromeDriver to verify UI functionality.
+
 ## Setup Instructions
 
 1. Clone the repository:
@@ -21,39 +29,69 @@ This solution contains a simple Bank Account MVC project with a REST API and acc
    git clone <repository-url>
    ```
 
-2. Navigate to the project directory:
+### Running the API
+
+1. Navigate to the API project directory:
    ```sh
    cd bank-account-api
    ```
 
-3. Build the project:
+2. Build the project:
    ```sh
    ./gradlew build
    ```
 
-4. Run the API:
+3. Run the API:
    ```sh
    ./gradlew bootRun
    ```
 
-5. Open the browser and navigate to:
+4. Open the browser and navigate to:
    ```
    http://localhost:9090/api/BankAccount
    ```
    This will display the list of bank accounts.
 
-6. Run the tests:
+5. Run the API tests:
    ```sh
    ./gradlew test
    ```
 
-## Running Tests
+### Running the UI
 
-To run the tests in this project, follow these steps:
+1. Open a new terminal and navigate to the UI project directory:
+   ```sh
+   cd bank-account-ui
 
-1. Ensure you have the necessary dependencies installed.
-2. Open a terminal and navigate to the project directory.
-3. Run the following command to execute the tests:
+2. Build the UI project:
+   ```sh
+   ./gradlew build
+   ```
+
+3. Run the UI:
+   ```sh
+   ./gradlew bootRun
+   ```
+
+4. Open the browser and navigate to:
+   ```
+   http://localhost:8080/bankaccounts
+   ```
+   This will display the list of bank accounts.
+
+5. Run the UI tests:
+   ```sh
+   ./gradlew test
+   ```
+
+## Tests
+
+To run all the tests in this project, follow these steps:
+
+1. Ensure you have the necessary dependencies installed and both API and UI projects are running.
+2. Open a terminal and navigate to the root directory.
+3. Run the following command to execute all tests (API + UI):
+
    ```sh
    ./gradlew test
    ```
@@ -65,6 +103,7 @@ This project requires the following dependencies for testing:
 - `JUnit 5`: A popular testing framework for Java.
 - `Mockito`: A library for creating mock objects in unit tests.
 - `RestAssured`: A library for testing REST APIs.
+- `Selenium`: A browser automation framework for UI testing.
 
 ## Technologies Used
 - Java 21
@@ -72,6 +111,7 @@ This project requires the following dependencies for testing:
 - JUnit 5 (for testing)
 - Mockito (for mocking dependencies in tests)
 - RestAssured (for API testing)
+- Selenium WebDriver (for UI testing)
 
 ## Contributing
 Feel free to submit issues or pull requests for improvements or bug fixes.
