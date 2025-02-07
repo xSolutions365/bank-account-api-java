@@ -24,6 +24,9 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'jakarta.validation:jakarta.validation-api:3.1.1'
     implementation 'com.h2database:h2'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.17.0'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.6.3'
 }
 
 tasks.named('test') {
