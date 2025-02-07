@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Accounts</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<!-- Include the header fragment -->
+<div th:replace="fragments/header :: header"></div>
+
+<div class="main-content">
+    <h2 class="title">Bank Accounts</h2>
+    <div class="table-container">
+        <table class="account-table">
+            <thead>
+            <tr>
+                <th>Account Number</th>
+                <th>Account Holder</th>
+                <th>Balance</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="account : ${accounts}">
+                <td th:text="${account.accountNumber}"></td>
+                <td th:text="${account.accountHolderName}"></td>
+                <td th:text="'$' + ${#numbers.formatDecimal(account.balance, 1, 2)}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer class="footer">
+    &copy; 2025 - BankAccountUI - <a href="/privacy">Privacy</a>
+</footer>
+
+</body>
+</html>

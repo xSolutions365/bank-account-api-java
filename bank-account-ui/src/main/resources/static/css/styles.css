@@ -1,0 +1,157 @@
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F2F2F2;
+    color: #333;
+}
+
+/* Main content area to fill available space */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevents full-page scrolling */
+    padding: 20px;
+}
+
+/* Title Styling */
+.title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #24004C;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Scrollable Table Container */
+.table-container {
+    flex-grow: 1;
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: calc(100vh - 150px); /* Prevents table overlapping footer */
+    padding-bottom: 10px;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 850px;
+}
+
+/* Table Styling */
+.account-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 8px;
+}
+
+/* Table Header */
+.account-table th {
+    background-color: #24004C;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Table Cells */
+.account-table th,
+.account-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+}
+
+/* Alternate Row Colors */
+.account-table tbody tr:nth-child(even) {
+    background-color: #F2F2F2;
+}
+
+/* Table Scrollbar Styling */
+.table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+/* Fixed Footer */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #24004C;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #24004C;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-container {
+        width: 95%;
+    }
+
+    .account-table th,
+    .account-table td {
+        padding: 10px;
+    }
+}
