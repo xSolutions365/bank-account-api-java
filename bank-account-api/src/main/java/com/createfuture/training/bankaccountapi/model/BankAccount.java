@@ -45,6 +45,9 @@ public class BankAccount {
         if (amount > this.balance) {
             throw new IllegalStateException("Insufficient funds.");
         }
+        if (amount == this.balance) {
+            return;
+        }
         this.balance -= amount;
     }
 
