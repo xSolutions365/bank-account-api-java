@@ -77,7 +77,8 @@ This solution contains a simple Bank Account web application with a REST API, a 
    ```
    http://localhost:8080/bankaccounts
    ```
-   This will display the list of bank accounts.
+   This will display the Bank Account UI.
+   ![Bank Account UI](images/bank-account-ui.png)
 
 5. Run the UI tests:
    ```sh
