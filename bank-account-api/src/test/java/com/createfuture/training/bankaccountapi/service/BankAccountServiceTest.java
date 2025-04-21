@@ -141,4 +141,52 @@ public class BankAccountServiceTest {
         // Assert
         assertEquals(accounts.size(), service.getAllAccounts().size());
     }
+
+    // @Test
+    // public void getAccountById_InvalidId_ShouldReturnNull() {
+    //     // Act
+    //     BankAccount result = service.getAccountById(999); // Non-existent ID
+    
+    //     // Assert
+    //     assertNull(result);
+    // }
+    
+    // @Test
+    // public void updateAccount_InvalidId_ShouldThrowIllegalArgumentException() {
+    //     // Arrange
+    //     BankAccount account = new BankAccount();
+    //     account.setId(999); // Invalid ID
+    //     account.setAccountNumber("123456");
+    //     account.setAccountHolderName("John Doe");
+    //     account.setBalance(1000.0);
+    
+    //     // Act & Assert
+    //     assertThrows(IllegalArgumentException.class, () -> service.updateAccount(account));
+    // }
+    
+    // @Test
+    // public void deleteAccount_InvalidId_ShouldNotThrowException() {
+    //     // Act & Assert
+    //     assertDoesNotThrow(() -> service.deleteAccount(999)); // Non-existent ID
+    // }
+    
+    // @Test
+    // public void createAccount_DuplicateAccountNumber_ShouldThrowException() {
+    //     // Arrange
+    //     BankAccount account1 = new BankAccount();
+    //     account1.setAccountNumber("123456");
+    //     account1.setAccountHolderName("John Doe");
+    //     account1.setBalance(1000.0);
+    
+    //     BankAccount account2 = new BankAccount();
+    //     account2.setAccountNumber("123456"); // Duplicate account number
+    //     account2.setAccountHolderName("Jane Doe");
+    //     account2.setBalance(2000.0);
+    
+    //     // Act
+    //     service.createAccount(account1);
+    
+    //     // Assert
+    //     assertThrows(IllegalArgumentException.class, () -> service.createAccount(account2));
+    // }
 }
