@@ -58,6 +58,7 @@ This solution contains a simple Bank Account web application with a REST API, a 
    ```
 
 ### Running the UI
+Ensure the API is running.
 
 1. Open a new terminal and navigate to the UI project directory:
    ```sh
@@ -80,7 +81,7 @@ This solution contains a simple Bank Account web application with a REST API, a 
    This will display the Bank Account UI.
    ![Bank Account UI](images/bank-account-ui.png)
 
-5. Run the UI tests:
+5. Run the UI tests (ensure both API and UI are running):
    ```sh
    ./gradlew test
    ```
