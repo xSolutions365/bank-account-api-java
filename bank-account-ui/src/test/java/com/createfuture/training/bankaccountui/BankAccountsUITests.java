@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.util.List;
 
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BankAccountsUITests {
 
@@ -22,9 +23,13 @@ public class BankAccountsUITests {
 
     @BeforeEach
     void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); // Wait for elements to be ready
-        driver.get("http://localhost:8080/bankaccounts"); // Adjust if necessary
+        try {
+            driver = new ChromeDriver();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); // Wait for elements to be ready
+            driver.get("http://localhost:8080/bankaccounts"); // Adjust if necessary
+        } catch (Exception e) {
+            Assertions.fail("Failed to initialize WebDriver: " + e.getMessage());
+        }
     }
 
     @AfterEach
@@ -60,5 +65,25 @@ public class BankAccountsUITests {
         Assertions.assertEquals("Account Number", columns.get(0).getText().trim());
         Assertions.assertEquals("Account Holder", columns.get(1).getText().trim());
         Assertions.assertEquals("Balance", columns.get(2).getText().trim());
+    }
+
+    @Test
+    @DisplayName("Create Account Form Should Be Present")
+    void createAccountFormShouldBePresent() {
+        WebElement form = driver.findElement(By.tagName("form"));
+        Assertions.assertNotNull(form, "Create account form should be visible.");
+
+        WebElement accountNumberInput = form.findElement(By.id("accountNumber"));
+        Assertions.assertNotNull(accountNumberInput, "Account Number input should be present.");
+
+        WebElement accountHolderNameInput = form.findElement(By.id("accountHolderName"));
+        Assertions.assertNotNull(accountHolderNameInput, "Account Holder Name input should be present.");
+
+        WebElement balanceInput = form.findElement(By.id("balance"));
+        Assertions.assertNotNull(balanceInput, "Balance input should be present.");
+
+        WebElement submitButton = form.findElement(By.tagName("button"));
+        Assertions.assertNotNull(submitButton, "Submit button should be present.");
+        Assertions.assertEquals("Create Account", submitButton.getText().trim(), "Submit button text should be 'Create Account'.");
     }
 }

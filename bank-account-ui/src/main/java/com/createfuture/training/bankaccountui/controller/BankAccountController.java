@@ -5,6 +5,7 @@ import com.createfuture.training.bankaccountui.service.BankAccountService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -22,5 +23,11 @@ public class BankAccountController {
         List<BankAccount> accounts = bankAccountService.getAccounts();
         model.addAttribute("accounts", accounts);
         return "bankaccounts"; // Renders bankaccounts.html
+    }
+
+    @PostMapping("/bankaccount")
+    public String addBankAccount(BankAccount account) {
+        bankAccountService.createAccount( account);
+        return "redirect:/bankaccounts"; // Redirects to the list of bank accounts
     }
 }

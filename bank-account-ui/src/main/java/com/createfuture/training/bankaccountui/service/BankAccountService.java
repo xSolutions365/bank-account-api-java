@@ -24,4 +24,13 @@ public class BankAccountService {
             return List.of(); // Return empty list if API call fails
         }
     }
+
+    public BankAccount createAccount(BankAccount newAccount) {
+        try {
+            var createdAccount = restTemplate.postForObject("http://localhost:9090/api/BankAccount", newAccount, BankAccount.class);
+            return createdAccount;
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to create account: " + e.getMessage(), e);
+        }
+    }
 }
