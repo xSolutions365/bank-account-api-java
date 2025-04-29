@@ -144,6 +144,73 @@ html, body {
     color: #24004C;
 }
 
+/* Form Container Styling */
+.styled-form {
+    width: 90%;
+    max-width: 850px;
+    margin: 0 auto 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Header Styling */
+.styled-form h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #24004C;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .form-group {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .form-group label {
+        flex: 1;
+        margin-bottom: 0;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    .form-group input {
+        flex: 2;
+    }
+}
+
+/* Form Button Alignment */
+.styled-form .form-button {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Form Button Styling */
+.form-button {
+    background-color: #24004C;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.form-button:hover {
+    background-color: #3b0066;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .table-container {
