@@ -1,0 +1,8 @@
+target
+*.iml
+*.log
+*.class
+*.jar
+*.war
+*.ear
+node_modules

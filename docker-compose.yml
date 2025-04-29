@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  bank-account-api:
+    build:
+      context: ./bank-account-api
+    ports:
+      - "9090:9090"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    networks:
+      - bank-network
+
+  bank-account-ui:
+    build:
+      context: ./bank-account-ui
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+      - bank-account-api
+    networks:
+      - bank-network
+
+networks:
+  bank-network:
+    driver: bridge
