@@ -3,7 +3,10 @@
 # Ignore build directories
 .gradle
 build/
-!gradle/wrapper/gradle-wrapper.jar
+
+# Ignore jar artifacts but keep the Gradle wrapper jar committed
+*.jar
+!**/gradle/wrapper/gradle-wrapper.jar
 
 # Ignore IntelliJ IDEA files
 .idea/
@@ -41,7 +44,6 @@ Thumbs.db
 
 # Ignore Java build files
 *.class
-*.jar
 *.war
 *.ear
 
