@@ -97,6 +97,8 @@ To run all the tests in this project, follow these steps:
    ```sh
    ./gradlew test
    ```
+## Context 7 Command
+code --add-mcp '{"name":"context7","type":"stdio","command":"npx","args":["@upstash/context7-mcp@1.0.31"],"env":{"CONTEXT7_API_KEY":"${input:CONTEXT7_API_KEY}"},"gallery":"https://api.mcp.github.com","version":"1.0.31"}' --folder-uri .
 
 ## Dependencies
 
