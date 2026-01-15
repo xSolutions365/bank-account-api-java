@@ -100,6 +100,15 @@ To run all the tests in this project, follow these steps:
 ## Context 7 Command
 code --add-mcp '{"name":"context7","type":"stdio","command":"npx","args":["@upstash/context7-mcp@1.0.31"],"env":{"CONTEXT7_API_KEY":"${input:CONTEXT7_API_KEY}"},"gallery":"https://api.mcp.github.com","version":"1.0.31"}' --folder-uri .
 
+## Spec-kit Commands
+- /speckit.constitution [prompt] : Generates or updates the constitution.md file. It establishes the "governing principles" of the project, 
+- /speckit.specify [prompt] : Generates the Functional Specification. It takes a user's high-level intent and converts it into detailed user stories and requirements.
+- /speckit.clarify [prompt] : Identify and resolve ambiguities in the spec (optional)
+- /speckit.plan [prompt] : Creates a Technical Implementation Plan. It reads the spec and constitution to set technology stack and architecture.
+- /speckit.tasks [prompt] : Converts the technical plan into a checklist of actionable coding tasks.
+- /speckit.analyze [prompt] : Validate your plan (optional)
+- /speckit.implement [prompt] : Execute the tasks and produce the feature code
+
 ## Dependencies
 
 This project requires the following dependencies for testing:
