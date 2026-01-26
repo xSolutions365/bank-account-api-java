@@ -1,0 +1,158 @@
+openapi: 3.0.3
+info:
+  title: Bank Account API - Total Balance Extension
+  description: |
+    Extension to the Bank Account API that provides aggregate balance calculation
+    across all bank accounts.
+    
+    This endpoint enables bank administrators and reporting systems to quickly obtain
+    total liability exposure for financial oversight and regulatory reporting.
+  version: 1.0.0
+  contact:
+    name: Bank Account API Team
+
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+  - url: http://localhost:4000
+    description: Alternative local development server
+
+tags:
+  - name: BankAccount
+    description: Bank account management operations
+
+paths:
+  /api/BankAccount/total:
+    get:
+      tags:
+        - BankAccount
+      summary: Get total balance across all accounts
+      description: |
+        Calculates and returns the sum of all bank account balances.
+        
+        **Features:**
+        - Includes both positive and negative balances
+        - Returns 0.0 if no accounts exist
+        - Maintains 2 decimal place precision
+        - Response time < 2 seconds for up to 10,000 accounts
+        
+        **Use Cases:**
+        - Financial reporting and dashboards
+        - Regulatory compliance reporting
+        - Total liability monitoring
+        - Bank-wide balance reconciliation
+      operationId: getTotalBalance
+      parameters: []
+      responses:
+        '200':
+          description: Successfully calculated total balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TotalBalanceResponse'
+              examples:
+                multipleAccounts:
+                  summary: Multiple accounts with positive balances
+                  value:
+                    total_balance: 1234567.89
+                    currency: USD
+                emptyBank:
+                  summary: No accounts in system
+                  value:
+                    total_balance: 0.0
+                    currency: USD
+                mixedBalances:
+                  summary: Mixed positive and negative balances
+                  value:
+                    total_balance: 45230.50
+                    currency: USD
+                negativeTotal:
+                  summary: Net negative balance (overdrafts exceed deposits)
+                  value:
+                    total_balance: -1250.00
+                    currency: USD
+        '500':
+          description: Internal server error during calculation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                detail: Failed to calculate total balance
+
+components:
+  schemas:
+    TotalBalanceResponse:
+      type: object
+      required:
+        - total_balance
+        - currency
+      properties:
+        total_balance:
+          type: number
+          format: float
+          description: Sum of all account balances (positive and negative)
+          example: 1234567.89
+          minimum: -1000000000000.00
+          maximum: 1000000000000.00
+        currency:
+          type: string
+          description: Currency code for the balance
+          enum:
+            - USD
+          example: USD
+        account_count:
+          type: integer
+          description: |
+            Optional: Number of accounts included in the calculation.
+            (Priority P3 - Not in MVP)
+          example: 42
+          minimum: 0
+        calculated_at:
+          type: string
+          format: date-time
+          description: |
+            Optional: ISO 8601 timestamp when the calculation was performed.
+            (Priority P3 - Not in MVP)
+          example: "2026-01-14T10:30:00Z"
+    
+    ErrorResponse:
+      type: object
+      required:
+        - detail
+      properties:
+        detail:
+          type: string
+          description: Error message describing what went wrong
+          example: Failed to calculate total balance
+
+  examples:
+    TotalBalanceMultipleAccounts:
+      summary: Standard case with multiple accounts
+      description: Several accounts with various positive balances
+      value:
+        total_balance: 1234567.89
+        currency: USD
+    
+    TotalBalanceEmpty:
+      summary: Empty bank with no accounts
+      description: When the bank has no accounts, total is 0.0
+      value:
+        total_balance: 0.0
+        currency: USD
+    
+    TotalBalanceMixed:
+      summary: Mixed positive and negative balances
+      description: Some accounts in credit, some overdrawn
+      value:
+        total_balance: 45230.50
+        currency: USD
+    
+    TotalBalanceWithCount:
+      summary: Response with optional account count (P3)
+      description: Enhanced response including metadata about the calculation
+      value:
+        total_balance: 1234567.89
+        currency: USD
+        account_count: 42
+        calculated_at: "2026-01-14T10:30:00Z"
