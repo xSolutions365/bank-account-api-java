@@ -125,6 +125,7 @@ Q: The bank pays 2% interest on balances over $1000, but only 1% on balances fro
 A: The bank pays $20 interest
 Q: The bank will only pay interest on a single account - the account with the largest balance.  If John has one account with a balance of $1000 and another of $500, how much interest will John earn.
 A:  John will earn $10 interest from the account with $1000 and $0 interest from the account with $500
+Write a method to calculate the interest an account holder will earn.  Follow the examples above and think step by step.  Show the account holders and their interest payments 
 
 ## Spec-kit Commands
 - /speckit.constitution [prompt] : Generates or updates the constitution.md file. It establishes the "governing principles" of the project, 
